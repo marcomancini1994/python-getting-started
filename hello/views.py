@@ -16,7 +16,7 @@ def index(request):
     # extracting data in json format 
     data = r.json() 
     
-    text = 'Ultimo aggiornamento: {}\n Numero casi: {}\n Numero decessi: {} \n Numero guariti: {} \n Mappa dettagliata: https://bit.ly/38TTenD'.format(data['dt'], data['dt'], data['dt'], data['dt'])
+    text = 'Ultimo aggiornamento: {}\n Numero casi: {}\n Numero decessi: {} \n Numero guariti: {} \n Mappa dettagliata: https://bit.ly/38TTenD'.format(data['dt'], data['Italy']['confirmed'], data['Italy']['deaths'], data['Italy']['recovered'])
 
     return HttpResponse(text)
     """
