@@ -5,7 +5,21 @@ from .models import Greeting
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Hello from Python!')
+    
+    # api-endpoint 
+    URL = "https://covid2019-api.herokuapp.com/country/italy"
+
+    # sending get request and saving the response as response object 
+    r = requests.get(url = URL) 
+
+    # extracting data in json format 
+    data = r.json() 
+    
+    text = 'Ultimo aggiornamento: {}\n Numero casi: {}\n ' \
+            'Numero decessi: {} \n Numero guariti: {} \n Mappa dettagliata: ' \ 
+            'https://bit.ly/38TTenD'.format(data['dt'], data['dt'], data['dt'], data['dt'])
+
+    return HttpResponse(text)
     """
     data = {
         'name': 'Vitor',
